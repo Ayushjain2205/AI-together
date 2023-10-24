@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import ThirdwebWrapper from "@/components/wrappers/ThirdwebWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,13 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ThirdwebProvider
-      activeChain="ethereum"
-      clientId="162f76bf7fe8332038779271eb2bef09"
-    >
+    <ThirdwebWrapper>
       <html lang="en">
         <body className={inter.className}>{children}</body>
       </html>
-    </ThirdwebProvider>
+    </ThirdwebWrapper>
   );
 }
